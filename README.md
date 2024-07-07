@@ -1,0 +1,2 @@
+# slurmCC
+Slurm C compiler
