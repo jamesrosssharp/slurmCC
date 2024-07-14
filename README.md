@@ -17,7 +17,5 @@ This is a work in progress and may take some time (years) to complete.
 
 Project goals:
 
- - implement C99 standard
+ - clang backend
  - compiler should be optimizing; should generate highly optimized assembly
- - write in modern C++
- - implement lightweight, fast compiler
