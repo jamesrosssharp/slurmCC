@@ -31,33 +31,13 @@ SOFTWARE.
 
 #pragma once
 
-#include <stdio.h>
-#include <string>
+class IBufferedReader
+{
 
-#include "IBufferedReader.h"
+    public: 
 
-class BufferedReader : public IBufferedReader {
+        virtual int readChar() = 0;
+        virtual int peekChar() = 0;
 
-    public:
-
-        static constexpr size_t kBUF_SIZE = 4096;
-
-        BufferedReader(const std::string& fname);
-        ~BufferedReader();
-
-        virtual int readChar() override;
-        virtual int peekChar() override;
-
-    private:
-
-        int tryReloadBuffer();
-
-    private:        
-
-        char   m_buffer[kBUF_SIZE];
-        size_t m_bufferPos;
-        size_t m_bufferSize;
-        size_t m_charactersInBuffer;
-        FILE*  m_file;
 };
 

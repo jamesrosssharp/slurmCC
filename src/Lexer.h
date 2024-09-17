@@ -1,9 +1,9 @@
 /* vim: set et ts=4 sw=4: */
 
 /*
-	$PROJECT
+    SlurmCC : The SLURM C compiler
 
-$FILE: $DESC
+Lexer.h: The lexical analyser
 
 License: MIT License
 
@@ -31,33 +31,15 @@ SOFTWARE.
 
 #pragma once
 
-#include <stdio.h>
-#include <string>
-
 #include "IBufferedReader.h"
 
-class BufferedReader : public IBufferedReader {
-
+class Lexer 
+{
     public:
 
-        static constexpr size_t kBUF_SIZE = 4096;
+        Lexer(IBufferedReader* reader);
 
-        BufferedReader(const std::string& fname);
-        ~BufferedReader();
+               
 
-        virtual int readChar() override;
-        virtual int peekChar() override;
-
-    private:
-
-        int tryReloadBuffer();
-
-    private:        
-
-        char   m_buffer[kBUF_SIZE];
-        size_t m_bufferPos;
-        size_t m_bufferSize;
-        size_t m_charactersInBuffer;
-        FILE*  m_file;
 };
 
